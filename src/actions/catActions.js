@@ -1,5 +1,5 @@
 import catApi from '../api/catApi';
-
+import * as types from './actionTypes'; 
 export function loadCats() {  
   return function(dispatch) {
     return catApi.getAllCats().then(cats => {
@@ -11,5 +11,6 @@ export function loadCats() {
 }
 
 export function loadCatsSuccess(cats) {  
-    return {type: 'LOAD_CATS_SUCCESS', cats};
+    return {type: types.LOAD_CATS_SUCCESS, cats};
   }
+  
