@@ -1,19 +1,25 @@
 import React, {PropTypes} from 'react';
+import CatListRow from './CatListRow';
 
-const CatList = ({cats}) => {  
+const CatList = ({cats}) => {
   return (
-      <ul className="list-group">
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
         {cats.map(cat => 
-          <li className="list-group-item" key={cat.id}>
-            {cat.name}
-          </li>
+          <CatListRow key={cat.id} cat={cat} />
         )}
-      </ul>
+      </tbody>
+    </table>
   );
 };
 
-CatList.propTypes = {  
+CatList.propTypes = {
   cats: PropTypes.array.isRequired
 };
 
-export default CatList;  
+export default CatList;
